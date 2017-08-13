@@ -25,7 +25,7 @@ SECRET_KEY = '=6qzsgh+%5f3akt0q(+j)4##yh++-29%yt(*-k7vw!95&xh4s)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['anelya.pythonanywhere.com']
 
 
 # Application definition
