@@ -2,10 +2,28 @@
 <body class="w3-light-grey">
     {% block content %}
         {% for post in posts %}
-          <h3><b><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></b></h3>
-          <span class="w3-opacity">{{ post.published_date }}</span>    
-          <p>{{ post.text|linebreaksbr }}</p>
-        {% endfor %}  
-      {% endblock content %}   
+        <div class="w3-card-4 w3-margin w3-white">
+	        <div class="w3-container">
+	        {% if post.image %}
+        		<img src="{{ MEDIA_URL }}{{ post.image.url }}" class="post-img">
+    		{% endif %}	
+	          <h3><b><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></b></h3>
+	          <span class="w3-opacity">{{ post.published_date }}</span>    
+	          <p>{{ post.text|linebreaksbr }}</p>
+	            <div class="w3-row">
+				    <div class="w3-col m8 s12">
+				     <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+				    </div>
+				    <!-- <div class="w3-col m4 w3-hide-small">
+				        <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p>
+				    </div> -->
+      			</div>
+	        </div>
+        </div>
+        {% endfor %}
+      {% endblock content %} 
+      {% if post.image %}
+      	<img src="{{MEDIA_URL}}{{post.image.url}}">
+      {% endif %}  
 </body>
 

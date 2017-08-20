@@ -1,5 +1,23 @@
+h1,h2,h3,h4,h5 {
+	font-family: "Raleway", sans-serif
+}
+html {
+	min-height: 100%;
+    position: relative;
+}
 body {
 	margin: 0;
+	font-weight: 400;
+	color: #000000;
+	background-color: #f1f1f1;
+	font-family: "Raleway", sans-serif;
+	position: relative;
+    min-height: 100%;
+}
+.content {
+	max-width: 1400px;
+	width: 100%;
+	margin: auto;
 }
 a {
 	text-decoration: none !important;
@@ -10,4 +28,11 @@ a:hover, a:focus {
 	text-decoration: none !important;
 	outline: none !important;
 	color: #000000;
+}
+.profile-img {
+	width: 100%;
+	max-width: 768px;
+}
+.post-img {
+	width: 100%;
 }
