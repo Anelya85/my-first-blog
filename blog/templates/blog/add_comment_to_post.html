@@ -1,9 +1,25 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <h1>New comment</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Send</button>
-    </form>
+<div class="container sections-wrapper">
+	<div class="row">
+        <div class="primary col-md-12 col-sm-12">
+        	<section class="new-comment section">
+			<div class="section-inner">
+				<div class="content">
+					 <div class="item">
+					 	<div class="new-comment">
+							<h1 class="title">New comment</h1>
+						    <form method="POST" class="post-form">{% csrf_token %}
+						        {{ form.as_p }}
+						        <button type="submit" class="save btn btn-default">Send</button>
+						    </form>
+						</div>
+					 </div>
+				</div>
+			</div>
+			</section>
+        </div>
+    </div>
+</div>
 {% endblock %}

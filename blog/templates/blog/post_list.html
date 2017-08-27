@@ -1,29 +1,60 @@
 {% extends 'blog/base.html' %}
 <body>
     {% block content %}
-    <div class="col-md-8 col-sm-12 without-padding">
-        {% for post in posts %}
-        <div class="post-block">
-	        <div class="wrap">
-	        {% if post.image %}
-        		<img src="{{ MEDIA_URL }}{{ post.image.url }}" class="post-img">
-    		{% endif %}	
-	          <h3><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
-	          <span class="w3-opacity">{{ post.published_date }}</span>    
-	          <p>{{ post.text|linebreaksbr }}</p>
-	            <div class="w3-row">
-				    <div class="w3-col m8 s12">
-				     <p><button class="w3-button w3-padding-large w3-white w3-border">READ MORE</button></p>
-				    </div>
-				    <div class="w3-col m4 w3-hide-small">
-				        <p><span class="w3-padding-large w3-right"><b>Comments</b> <span class="w3-tag">{{ post.comments.count }}</span></span></p>
-				    </div>
-      			</div>
-	        </div>
-        </div>
-        {% endfor %}
-        </div>
-        {% include "blog/sidebar.html" %}
-      {% endblock content %}  
+    <div class="container sections-wrapper">
+    	<div class="row">
+    		<div class="primary col-md-8 col-sm-12 col-xs-12">
+                <section class="about section">
+                    <div class="section-inner">
+                        <h2 class="heading">Обо мне</h2>
+                        <div class="content">
+                            <p>Hello, my dear friends, welcome to the my blog!<br>
+                            	<b>Я успешно вошла в IT, чего и Вам советую!</b> (Предварительно продав свою душу)	
+                            </p>    
+                            <p>А если серьезно, то я работаю Front-end разработчиком и занимаюсь созданием сайтов. <br>
+                           	В свое свободное время я изучаю Python и Django, слушаю хорошую музыку и вкусно готовлю.
+                           	Свой блог я создала на Django, оригинальный код которого Вы можете увидеть <a href="https://github.com/Anelya85/my-first-blog">здесь</a> - на моем GitHub профиле. 
+                            </p>
+                        </div>
+                    </div>          
+                </section>
+                <!-- My post -->
+			 	<section class="posts section">
+			 		<div class="section-inner">
+				 		<h2 class="heading">Мой блог</h2>
+				 		<div class="content">
+				 		{% for post in posts %}
+				 			<div class="item">
+					    		<h3 class="title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
+					    		{% if post.image %}
+					        		<img src="{{ MEDIA_URL }}{{ post.image.url }}" class="post-img">
+					    		{% endif %}
+					    		<p class="news-text-preview summary">{{ post.text|linebreaksbr }}</p>
+					    		<a href="{% url 'post_detail' pk=post.pk %}" class="more-link">Читать дальше</a><br>
+					    		<span class="date">{{ post.published_date }}</span><br>
+					    		<span class="comments-count"><b>Комментарии</b> <span class="comments-tag">{{ post.comments.count }}</span></span>   
+				 			</div>
+				 		{% endfor %}
+				 		</div>
+			 		</div>
+			 	</section>
+ 				<!-- My post -->
+ 				<!-- Work expirience -->
+ 				<section class="experience section">
+                    <div class="section-inner">
+                        <h2 class="heading">Опыт работы</h2>
+                        <div class="content">
+                            <div class="item">
+                                <h3 class="title"> Junior Frontend Developer - <span class="place"><a href="https://awery.aero/about-us#team">AWERY Aviation Software</a></span> <span class="year">(December, 2016 - Present)</span></h3>
+                            </div><!--//item-->
+                        </div> 
+                    </div>                
+                </section>
+                <!-- Work expirience -->
+               </div>
+               {% include "blog/sidebar.html" %}
+    	</div>
+    </div> 
+      {% endblock content %}
 </body>
 
